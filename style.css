@@ -1,0 +1,159 @@
+@charset "UTF-8";
+
+/* ================================
+   Design System (CSS Variables)
+   ================================ */
+:root {
+  /* Color Palette */
+  --Green: hsl(75, 94%, 57%);   /* Highlight color */
+  --White: hsl(0, 0%, 100%);    /* Text and backgrounds */
+  --Grey700: hsl(0, 0%, 20%);   /* Card buttons */
+  --Grey800: hsl(0, 0%, 12%);   /* Card background */
+  --Grey900: hsl(0, 0%, 8%);    /* Page background */
+
+  /* Spacing scale */
+  --spacing-xs: 0.5rem;
+  --spacing-sm: 1rem;
+  --spacing-md: 1.25rem;
+  --spacing-lg: 2rem;
+
+  /* Typography */
+  --font-base: "Inter", sans-serif;
+  --font-size-sm: 0.9rem;
+  --font-size-base: 1rem;
+  --font-size-lg: 1.75rem;
+  --font-size-xl: 2rem;
+
+  /* Radius */
+  --radius-sm: 0.5rem;
+  --radius-md: 0.75rem;
+  --radius-lg: 1rem;
+
+  /* Shadow */
+  --shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.1);
+}
+
+/* ================================
+   Global Reset
+   ================================ */
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+/* ================================
+   Font Import
+   ================================ */
+@font-face {
+  font-family: "Inter";
+  src: url(assets/fonts/Inter-VariableFont_slnt\wght.ttf) format("truetype");
+  font-weight: 400 700; /* Range instead of multiple declarations */
+}
+
+/* ================================
+   Layout: Body
+   ================================ */
+body {
+  background-color: var(--Grey900);
+  font-family: var(--font-base);
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  align-items: center;
+  justify-content: center;
+  color: var(--White);
+  padding: var(--spacing-sm);
+}
+
+/* ================================
+   Card Component
+   ================================ */
+.card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--spacing-sm);
+  background-color: var(--Grey800);
+  border-radius: var(--radius-md);
+  padding: var(--spacing-md);
+  box-shadow: var(--shadow);
+  text-align: center;
+
+  /* Mobile-first width */
+  width: min(100%, 20rem);
+}
+
+/* ================================
+   Profile Image
+   ================================ */
+img {
+  border-radius: 50%;
+  object-fit: cover;
+  width: 5rem; /* relative instead of px */
+  height: 5rem;
+}
+
+/* ================================
+   Headings & Text
+   ================================ */
+h1 {
+  font-size: var(--font-size-lg);
+  font-weight: 600;
+}
+
+.location {
+  color: var(--Green);
+  font-weight: 700;
+  margin-bottom: var(--spacing-xs);
+}
+
+.bio {
+  font-size: var(--font-size-sm);
+  margin-bottom: var(--spacing-sm);
+}
+
+/* ================================
+   List of Links
+   ================================ */
+ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-sm);
+  width: 100%;
+  padding: 0;
+}
+
+ul li {
+  padding: var(--spacing-xs);
+  border-radius: var(--radius-sm);
+  background-color: var(--Grey700);
+  transition: all 0.3s;
+  font-weight: 700;
+  text-align: center;
+}
+
+ul li:hover {
+  background-color: var(--Green);
+  color: var(--Grey900);
+  cursor: pointer;
+}
+
+/* ================================
+   Larger Screens (Tablet & Desktop)
+   ================================ */
+@media screen and (min-width: 48rem) { /* ~768px */
+  .card {
+    width: 24rem;
+    padding: var(--spacing-lg);
+  }
+
+  .bio {
+    font-size: var(--font-size-base);
+  }
+
+  ul li {
+    padding: var(--spacing-sm);
+  }
+}
